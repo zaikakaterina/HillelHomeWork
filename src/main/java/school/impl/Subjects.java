@@ -1,12 +1,17 @@
 package school.impl;
 
-import school.abstracts.People;
+import demo.Days;
 
 public class Subjects{
 
     private String title;
     private int subjectHours;
-    Students students = new Students("Vanya", 10, 100, 5);
+
+    public Students getStudents() {
+        return students;
+    }
+
+    Students students = new Students("Vanya", 10, 100, 5, new Days[]{}, new Days[]{});
 
     public Subjects(String title, int subjectHours) {
         this.title = title;
