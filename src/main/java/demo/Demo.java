@@ -10,7 +10,7 @@ public class Demo {
     public static void main(String[] args) {
         Days[] days = {Days.MONDAY, Days.FRIDAY, Days.SATURDAY};
         Classroom classroom = new Classroom(5);
-        Students students = new Students("Vanya", 10, 100, days, new Days[]{});
+        Students students = new Students("Vanya", 10, 100, days, days);
         Teacher teacher = new Teacher("Steven", 36, "mathematics");
         Subjects subjects = new Subjects("mathematics", 40);
         Utils utils = new Utils();
