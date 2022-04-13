@@ -7,11 +7,7 @@ public class Subjects{
     private String title;
     private int subjectHours;
 
-    public Students getStudents() {
-        return students;
-    }
-
-    Students students = new Students("Vanya", 10, 100, 5, new Days[]{}, new Days[]{});
+    Students students = new Students("Vanya", 10, 100, new Days[]{}, new Days[]{});
 
     public Subjects(String title, int subjectHours) {
         this.title = title;

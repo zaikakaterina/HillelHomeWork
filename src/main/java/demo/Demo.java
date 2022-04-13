@@ -8,9 +8,9 @@ import school.impl.Utils;
 
 public class Demo {
     public static void main(String[] args) {
-        Days[] days = {Days.MONDAY, Days.THURSDAY};
+        Days[] days = {Days.MONDAY, Days.FRIDAY, Days.SATURDAY};
         Classroom classroom = new Classroom(5);
-        Students students = new Students("Vanya", 10, 100, 40, days, new Days[]{Days.SATURDAY, Days.SUNDAY});
+        Students students = new Students("Vanya", 10, 100, days, new Days[]{});
         Teacher teacher = new Teacher("Steven", 36, "mathematics");
         Subjects subjects = new Subjects("mathematics", 40);
         Utils utils = new Utils();

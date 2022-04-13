@@ -10,12 +10,14 @@ public class Students extends People{
     private Days[] workingDays;
     private Days[] daysOff;
 
-    public Students(String name, int age, int grade, int subjectNumber, Days[] workingDays, Days[] daysOff) {
+
+
+    public Students(String name, int age, int grade, Days[] workingDays, Days[] daysOff) {
         super(name, age);
         this.grade = grade;
-        subjects = new Subjects[subjectNumber];
         this.workingDays = workingDays;
         this.daysOff = daysOff;
+        subjects = new Subjects[]{};
     }
 
     public void haveSubject(Subjects subject) {
