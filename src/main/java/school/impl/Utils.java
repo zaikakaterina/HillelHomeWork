@@ -12,32 +12,38 @@ public class Utils {
     static String[] fridaySchedule = {"Physics,", "Computer Science,", "Mathematics,", "Biology."};
     static String delimiter = " ";
 
-
     public static void schedule(People students) {
         if (students instanceof Students) {
             Days[] days = ((Students) students).getWorkingDays();
             if (days != null) {
                 for (Days d : days) {
-                    if (d.equals(Days.MONDAY)) {
-                        System.out.println("It is " + d.getName() + ". Your schedule is " + String.join(delimiter, mondaySchedule));
-                    }
-                    if (d.equals(Days.TUESDAY)) {
-                        System.out.println("It is " + d.getName() + ". Your schedule is " + String.join(delimiter, tuesdaySchedule));
-                    }
-                    if (d.equals(Days.WEDNESDAY)) {
-                        System.out.println("It is " + d.getName() + ". Your schedule is " + String.join(delimiter, wednesdaySchedule));
-                    }
-                    if (d.equals(Days.THURSDAY)){
-                        System.out.println("It is " + d.getName() + ". Your schedule is " + String.join(delimiter, thursdaySchedule));
-                    }
-                    if (d.equals(Days.FRIDAY)) {
-                        System.out.println("It is " + d.getName() + ". Your schedule is " + String.join(delimiter, fridaySchedule));
-                    }
-                    if (d.equals(Days.SATURDAY) || d.equals(Days.SUNDAY)){
-                        System.out.println(d.getName() + " is weekend!");
+                    switch (d) {
+                        case MONDAY:
+                            printSchedule(mondaySchedule, d);
+                            break;
+                        case TUESDAY:
+                            printSchedule(tuesdaySchedule, d);
+                            break;
+                        case WEDNESDAY:
+                            printSchedule(wednesdaySchedule, d);
+                            break;
+                        case THURSDAY:
+                            printSchedule(thursdaySchedule, d);
+                            break;
+                        case FRIDAY:
+                            printSchedule(fridaySchedule, d);
+                            break;
+                        case SATURDAY:
+                        case SUNDAY:
+                            System.out.println(d.getName() + " is weekend!");
                     }
                 }
             }
         }
     }
+    private static void printSchedule(String[] scheduleArray, Days d){
+        System.out.println("It is " + d.getName() + ". Your schedule is " + String.join(delimiter, scheduleArray));
+
+    }
+
 }
