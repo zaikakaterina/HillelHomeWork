@@ -1,26 +1,43 @@
 package demo;
 
-import school.impl.Students;
-import school.impl.Subjects;
-import school.impl.Teacher;
-import school.oneclass.Classroom;
-import school.impl.Utils;
+import exceptions.WrongLoginException;
+import exceptions.WrongPasswordException;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Demo {
-    public static void main(String[] args) {
-        Days[] days = {Days.MONDAY, Days.FRIDAY, Days.SATURDAY};
-        Classroom classroom = new Classroom(5);
-        Students students = new Students("Vanya", 10, 100, days, days);
-        Teacher teacher = new Teacher("Steven", 36, "mathematics");
-        Subjects subjects = new Subjects("mathematics", 40);
-        Utils utils = new Utils();
-        classroom.enrollStudent(students);
-        classroom.studies();
-        students.haveSubject(subjects);
-        students.hasSubjects();
-        students.havingBreak();
-        teacher.atSchool();
-        teacher.havingBreak();
-        utils.schedule(students);
+
+    public static void main(String[] args){
+
+        loginForm("Login_%", "Parol!", "Parol!");
+    }
+
+    public static boolean loginForm(String login, String password, String confirmPswd){
+        try {
+        Pattern pattern2 = Pattern.compile("^\\w+(?=.*!)|(?=!.*){1,20}$");
+        Matcher matcherPassword = pattern2.matcher(password);
+            Pattern pattern1 = Pattern.compile("^\\w{1,20}$");
+            Matcher matcherLogin = pattern1.matcher(login);
+            if (matcherLogin.find()){
+                if (matcherPassword.find()) {
+                    if (confirmPswd.equals(password)) {
+                        return true;
+                    }else{
+                    throw new WrongPasswordException("Invalid Password", "Password Error");
+                }
+                } else {
+                    throw new WrongPasswordException("Invalid Password", "Password Error");
+                }
+            } else {throw new WrongLoginException("Invalid Login", "Invalid Password", "Login Error");
+        }
+        } catch (WrongLoginException e) {
+            e.printStackTrace();
+        } catch (WrongPasswordException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 }
+
+
