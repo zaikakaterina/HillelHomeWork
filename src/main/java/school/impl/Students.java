@@ -3,10 +3,13 @@ package school.impl;
 import demo.Days;
 import school.abstracts.People;
 
-public class Students extends People{
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
+public class Students extends People{
+    Set<Subjects> subjects = new HashSet<>();
     private int grade;
-    private Subjects[] subjects;
     private Days[] workingDays;
     private Days[] daysOff;
 
@@ -17,16 +20,29 @@ public class Students extends People{
         this.grade = grade;
         this.workingDays = workingDays;
         this.daysOff = daysOff;
-        subjects = new Subjects[]{};
     }
 
     public void haveSubject(Subjects subject) {
-        for (int i = 0; i < subjects.length; i++) {
-            if (subjects[i] == null) {
-                subjects[i] = subject;
-                return;
+        for (Subjects s: subjects) {
+                if (subjects == null) {
+                    subjects.add(subject);
+                    return;
+                }
             }
         }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Students students = (Students) o;
+        return Objects.equals(subjects, students.subjects);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(subjects);
     }
 
     public Days[] getWorkingDays() {
@@ -37,7 +53,7 @@ public class Students extends People{
         return daysOff;
     }
 
-    public void hasSubjects() {
+    public void hasSubjects(Subjects subject) {
         for (Subjects s : subjects) {
             if (s != null){
                 s.getSubjects(subjects);

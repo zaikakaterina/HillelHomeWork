@@ -2,6 +2,8 @@ package school.impl;
 
 import demo.Days;
 
+import java.util.Set;
+
 public class Subjects{
 
     private String title;
@@ -22,7 +24,7 @@ public class Subjects{
         return subjectHours;
     }
 
-    public void getSubjects(Subjects[] subjects){
+    public void getSubjects(Set<Subjects> subjects){
         System.out.println("Student " + students.getName() + " has " + getTitle() + " with " + getSubjectHours() + " hours per week ");
     }
 

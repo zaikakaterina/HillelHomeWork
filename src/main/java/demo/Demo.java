@@ -17,7 +17,7 @@ public class Demo {
         classroom.enrollStudent(students);
         classroom.studies();
         students.haveSubject(subjects);
-        students.hasSubjects();
+        students.hasSubjects(subjects);
         students.havingBreak();
         teacher.atSchool();
         teacher.havingBreak();
