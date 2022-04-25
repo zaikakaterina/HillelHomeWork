@@ -2,14 +2,16 @@ package school.impl;
 
 import demo.Days;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Subjects{
 
     private String title;
     private int subjectHours;
+    Set<Subjects> subjects1 = new HashSet<>();
 
-    Students students = new Students("Vanya", 10, 100, new Days[]{}, new Days[]{});
+    Students students = new Students("Vanya", 10, 100, new Days[]{}, new Days[]{}, subjects1);
 
     public Subjects(String title, int subjectHours) {
         this.title = title;

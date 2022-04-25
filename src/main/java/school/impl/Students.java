@@ -14,12 +14,12 @@ public class Students extends People{
     private Days[] daysOff;
 
 
-
-    public Students(String name, int age, int grade, Days[] workingDays, Days[] daysOff) {
+    public Students(String name, int age, int grade, Days[] workingDays, Days[] daysOff, Set<Subjects> subjects) {
         super(name, age);
         this.grade = grade;
         this.workingDays = workingDays;
         this.daysOff = daysOff;
+        this.subjects = subjects;
     }
 
     public void haveSubject(Subjects subject) {
@@ -53,7 +53,7 @@ public class Students extends People{
         return daysOff;
     }
 
-    public void hasSubjects(Subjects subject) {
+    public void hasSubjects(Set<Subjects> subjects) {
         for (Subjects s : subjects) {
             if (s != null){
                 s.getSubjects(subjects);
