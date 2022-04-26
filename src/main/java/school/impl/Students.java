@@ -3,12 +3,11 @@ package school.impl;
 import demo.Days;
 import school.abstracts.People;
 
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 public class Students extends People{
-    Set<Subjects> subjects = new HashSet<>();
+    private Set<Subjects> subjects;
     private int grade;
     private Days[] workingDays;
     private Days[] daysOff;
