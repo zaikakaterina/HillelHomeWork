@@ -2,12 +2,11 @@ package app;
 
 import java.util.Objects;
 
-public class Product {
+public class Product implements Comparable<Product> {
     private String name;
-    private float price;
+    private int price;
 
-
-    public Product(String name, float price) {
+    public Product(String name, int price) {
         this.name = name;
         this.price = price;
     }
@@ -16,7 +15,7 @@ public class Product {
         return name;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -25,7 +24,7 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return Float.compare(product.price, price) == 0 &&
+        return price == product.price &&
                 Objects.equals(name, product.name);
     }
 
@@ -40,5 +39,10 @@ public class Product {
                 "name='" + name + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return 0;
     }
 }
