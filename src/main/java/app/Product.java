@@ -5,7 +5,6 @@ import java.util.Objects;
 public class Product implements Comparable<Product> {
     private String name;
     private int price;
-
     public Product(String name, int price) {
         this.name = name;
         this.price = price;

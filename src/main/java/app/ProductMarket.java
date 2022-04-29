@@ -3,47 +3,52 @@ package app;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProductMarket extends Product{
+public class ProductMarket {
 
-    List<Product> products;
+    private List<Product> products;
 
-    public ProductMarket(String name, int price, List<Product> products) {
-        super(name, price);
+    public ProductMarket(List<Product> products) {
         this.products = products;
     }
 
-    Product products1 = new Product("Shoes", 55);
-    Product products2 = new Product("Boots", 100);
-    Product products3 = new Product("Slippers", 8);
-
-    List<Product> productsAll = List.of(products1,products2,products3);
-
-    public void allProducts(){
-        productsAll.forEach(System.out::println);
-    }
-
-    public void sortProducts(){
-        List.of(products1.getName(),products2.getName(),products3.getName()).stream()
+    public List<String> getProductNames() {
+        return products.stream()
+                .map(Product::getName)
                 .sorted()
-                .forEach(System.out::println);
-    }
-
-    public void productsOverTen(){
-        productsAll.stream()
-                .filter(allProduct -> allProduct.getPrice() > 10)
-                .forEach(System.out::println);
-    }
-
-    public void productsBelowZero(){
-        productsAll.stream()
-                .filter(allProduct -> allProduct.getPrice() < 0)
-                .forEach(System.out::println);
-    }
-
-    public void priceToString(){
-        List<Integer> priceString = productsAll.stream()
-                .map(Product::getPrice)
                 .collect(Collectors.toList());
-        priceString.forEach(System.out::println);
+    }
+
+    public List<String> getSortedProducts() {
+        return products.stream()
+                .map(Product::getName)
+                .sorted()
+                .collect(Collectors.toList());
+    }
+
+    public List<Integer> getProductsOverTen() {
+        return products.stream()
+                .map(Product::getPrice)
+                .filter(price -> price > 10)
+                .collect(Collectors.toList());
+    }
+
+    public List<Integer> getProductsBelowZero() {
+        return products.stream()
+                .map(Product::getPrice)
+                .filter(price -> price < 0)
+                .collect(Collectors.toList());
+    }
+
+    public List<String> getPriceToString() {
+        return products.stream()
+                .map(product -> Integer.toString(product.getPrice()))
+                .collect(Collectors.toList());
+    }
+
+    public List<Integer> getSpecialPrice() {
+        return products.stream()
+                .map(Product::getPrice)
+                .filter(price -> price > 55)
+                .collect(Collectors.toList());
     }
 }
