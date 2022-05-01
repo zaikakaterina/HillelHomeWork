@@ -1,18 +1,16 @@
 package app;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.List;
 import java.util.stream.Collectors;
-@Data
 
+@Data
+@AllArgsConstructor
 public class ProductMarket {
 
     private List<Product> products;
-
-    public ProductMarket(List<Product> products) {
-        this.products = products;
-    }
 
     public List<String> getProductNames() {
         return products.stream()
