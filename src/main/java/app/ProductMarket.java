@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
+
 public class ProductMarket {
 
     private List<Product> products;

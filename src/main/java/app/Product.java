@@ -11,6 +11,7 @@ import lombok.ToString;
 public class Product implements Comparable<Product> {
     @Getter
     private String name;
+
     @Getter
     private int price;
 
