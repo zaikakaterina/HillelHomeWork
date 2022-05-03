@@ -62,7 +62,7 @@ public class TestProductMarket {
     @Test
     public void testGetPriceToString() {
 
-        Assertions.assertEquals(price, productMarket.getPriceToString().toString());
+        Assertions.assertEquals(STRING_PRICES, productMarket.getPriceToString(), "Fail: Prices are not string");
     }
 
     @Test

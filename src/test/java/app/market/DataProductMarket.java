@@ -9,5 +9,5 @@ public interface DataProductMarket {
     public static final List<Integer> PRODUCT_PRICES_OVER_TEN = Arrays.asList(55, 100);
     public static final List<Integer> PRODUCT_PRICES_UNDER_ZERO = Arrays.asList();
     public static final List<Integer> PRODUCT_SPECIAL_PRICES = Arrays.asList(100);
-
+    public static final List<String> STRING_PRICES = Arrays.asList("55", "100", "8");
 }
