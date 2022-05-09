@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ProductMarket test suite" verbose="1">
+    <test name="Test first three methods">
+        <groups>
+            <define name="first three tests"/>
+            <run>
+                <include name="first three tests"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="app.market.TestProductMarket"/>
+        </classes>
+    </test>
+    <test name="Test following two methods">
+        <groups>
+            <define name="Two methods following the first three"/>
+            <run>
+                <include name="two tests following first three"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="app.market.TestProductMarket"/>
+        </classes>
+    </test>
+    <test name="Methods except for last one">
+        <groups>
+            <define name="All methods except for last one"/>
+            <run>
+                <exclude name="last test"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="app.market.TestProductMarket"/>
+        </classes>
+    </test>
+</suite>
