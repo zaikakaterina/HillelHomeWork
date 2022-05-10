@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static app.market.DataProductMarket.*;
@@ -14,7 +13,6 @@ import static app.market.DataProductMarket.*;
 public class TestProductMarket {
 
     private static ProductMarket productMarket;
-    private static String price;
 
     @BeforeTest(alwaysRun = true)
     public void setUp() {
@@ -26,10 +24,6 @@ public class TestProductMarket {
         List<Product> productsAll = List.of(products1, products2, products3);
 
         productMarket = new ProductMarket(productsAll);
-
-        List<Integer> getPrices = Arrays.asList(products1.getPrice(), products2.getPrice(), products3.getPrice());
-
-        price = String.valueOf(getPrices);
     }
 
     @Test(groups = {"first three tests"})
